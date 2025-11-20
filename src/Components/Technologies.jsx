@@ -1,9 +1,13 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Slider from "react-slick";
 import sliderData from "../assets/data/sliderData.json";
 export default function Technologies() {
+  const technologies = sliderData.technologies;
+  const techRef = useRef(null);
+  const techsliderRef = useRef(null);
+
   const techsettings = {
     infinite: true,
     speed: 7000,
@@ -100,8 +104,7 @@ export default function Technologies() {
       },
     ],
   };
-  const technologies = sliderData.technologies;
-  const techRef = useRef(null);
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -125,19 +128,14 @@ export default function Technologies() {
         ease: "power3.out",
       }
     );
-
-    // Animate tech items after text animation completes
-    tl.fromTo(
-      techRef.current.querySelectorAll(".tb-tech__animeSlide"),
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0.5,
-        duration: 0.5,
-        ease: "power3.out",
-      }
-    );
+  }, []);
+  useLayoutEffect(() => {
+    console.log("Slider ref:", techsliderRef.current);
+    if (techsliderRef.current) {
+      console.log("InnerSlider:", techsliderRef.current.innerSlider);
+      techsliderRef.current.slickGoTo(0);
+      techsliderRef.current.innerSlider.onWindowResized();
+    }
   }, []);
   return (
     <section className="tb-technologies">
@@ -145,8 +143,9 @@ export default function Technologies() {
         <div className="row">
           <div className="col-12" ref={techRef}>
             <h5 className="tb-tech__anime">Technologies</h5>
-            <div className="tb-tech__slide tb-tech__animeSlide">
-              <Slider className="tb-tech__slide-items" {...techsettings}>
+
+            <div className="tb-tech__slide">
+              <Slider className="tb-tech__slide-items" ref={techsliderRef} {...techsettings}>
                 {technologies.map((tech) => (
                   <div key={tech.id}>
                     <img src={tech.image} alt={tech.title} />
@@ -154,8 +153,9 @@ export default function Technologies() {
                 ))}
               </Slider>
             </div>
-            <div className="tb-tech__slide tb-tech__animeSlide">
-              <Slider className="tb-tech__slide-items" {...techsecsettings}>
+
+            <div className="tb-tech__slide">
+              <Slider className="tb-tech__slide-items" ref={techsliderRef} {...techsecsettings}>
                 {technologies.map((tech) => (
                   <div key={tech.id}>
                     <img src={tech.image} alt={tech.title} />

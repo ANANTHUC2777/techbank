@@ -1,17 +1,17 @@
 import Slider from "react-slick";
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useLayoutEffect } from "react";
 import { ImgContext } from "../Context/ImgContext";
 import Cards from "./Cards";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 export default function Blogs() {
   const assets = useContext(ImgContext);
+  const blogRef = useRef(null);
+  const sliderRef = useRef(null);
+
   const blogsettings = {
-    infinite: false,
-    speed: 300,
     slidesToShow: 3,
     slidesToScroll: 1,
-    cssEase: "linear",
     arrows: true,
     dots: true,
     responsive: [
@@ -31,7 +31,7 @@ export default function Blogs() {
       },
     ],
   };
-  const blogRef = useRef(null);
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -55,18 +55,15 @@ export default function Blogs() {
         ease: "power3.out",
       }
     );
+  }, []);
 
-    // Animate tech slide items after text animation completes
-    tl.fromTo(
-      blogRef.current.querySelectorAll(".tb-blog__animeSlide"),
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        ease: "power3.out",
-      }
-    );
+  useLayoutEffect(() => {
+    console.log("Slider ref:", sliderRef.current);
+    if (sliderRef.current) {
+      console.log("InnerSlider:", sliderRef.current.innerSlider);
+      sliderRef.current.slickGoTo(0);
+      sliderRef.current.innerSlider.onWindowResized();
+    }
   }, []);
   return (
     <section className="tb-blog">
@@ -75,8 +72,8 @@ export default function Blogs() {
           <div className="col-12" ref={blogRef}>
             <span className="tb-blog__anime">Techbank</span>
             <h6 className="tb-blog__anime">Blogs</h6>
-            <div className="tb-blog__slide tb-blog__animeSlide">
-              <Slider className="tb-blog__slide-items" {...blogsettings}>
+            <div className="tb-blog__slide">
+              <Slider className="tb-blog__slide-items" {...blogsettings} ref={sliderRef}>
                 <Cards headTxt="Smart AI Chatbot" bodyTxt="Enhance customer engagement with personalized, AI-driven interactions." mainImg={assets.blog1}></Cards>
                 <Cards headTxt="Smart AI Chatbot" bodyTxt="Enhance customer engagement with personalized, AI-driven interactions." mainImg={assets.blog2}></Cards>
                 <Cards headTxt="Smart AI Chatbot" bodyTxt="Enhance customer engagement with personalized, AI-driven interactions." mainImg={assets.blog3}></Cards>

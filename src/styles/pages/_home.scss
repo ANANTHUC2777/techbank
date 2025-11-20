@@ -695,17 +695,6 @@
     }
   }
 }
-
-.tb-blog__slide,
-.tb-tech__slide,
-.tb-blog__slide-items,
-.tb-tech__slide-items {
-  width: 100%;
-  max-width: 100%;
-}
-.slick-slide {
-  flex: 0 0 auto;
-}
 @include media(1399px) {
   .tb-blog__slide .slick-prev {
     left: -3.6rem;
