@@ -1,0 +1,97 @@
+/********** RESET CSS ***********/
+@use "../abstract/" as *;
+
+* {
+  &::after,
+  &::before {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: inherit;
+  }
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--theme-black);
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  top: 0;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+.btn.focus,
+.btn:focus,
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-family: $font-head;
+  }
+}
+
+main {
+  margin-top: 12rem;
+}
+
+@media screen and (min-width: 1400px) {
+  .container {
+    max-width: 127.2rem;
+  }
+}
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 28px;
+  background-color: #1a1a1a6c;
+  border: 1px solid #474747;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: background-color 0.3s;
+}

@@ -1,0 +1,91 @@
+/********* HEADER *********/
+@use "../abstract/" as *;
+@use "../vendors/hamburger" as *;
+
+.tb {
+  &-header {
+    position: fixed;
+    padding-block-start: 4rem;
+    padding-block-end: 2.5rem;
+    height: 10.5rem;
+    transition: all 0.6s ease-in-out;
+  }
+
+  &-wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+
+  &-logo {
+    flex-basis: auto;
+
+    .navbar-brand {
+      img {
+        max-width: 12.9rem;
+      }
+    }
+  }
+
+  &-menu {
+    display: flex;
+    flex-basis: 90%;
+
+    &__links {
+      justify-content: center;
+
+      .navbar {
+        &-brand {
+          font-family: $font-bdy-reg;
+          font-weight: 400;
+          font-size: 1.4rem;
+          color: var(--theme-pure-white);
+          padding: 0;
+          margin-right: 0;
+        }
+      }
+
+      li {
+        padding-inline: 2.6rem;
+        margin-block: 0.9rem;
+        border-right: 2px solid var(--theme-violet);
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
+}
+
+@include media(991px) {
+  .tb-menu {
+    flex-basis: auto;
+  }
+
+  .tb-wrap {
+    position: relative;
+  }
+
+  .tb-menu__links {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 6.5rem;
+    background: rgb(26 26 26);
+    padding-inline: 0.9rem;
+    padding-block-start: 0.9rem;
+
+    li {
+      border-right: none;
+      text-align: center;
+    }
+  }
+
+  .tb-menu__contact {
+    margin-block-end: 1.8rem;
+    margin-block-start: 0.9rem;
+    display: flex;
+    justify-content: center;
+  }
+}

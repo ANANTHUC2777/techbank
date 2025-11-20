@@ -1,0 +1,87 @@
+/********** BUTTONS ***********/
+@use "../abstract/" as *;
+.tb-contact__btn {
+  font-family: $font-bdy-reg;
+  font-weight: 400;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  color: var(--theme-pure-white);
+  background-color: transparent;
+  padding: 0.85rem 1.85rem;
+  border: 1px solid var(--theme-pure-white);
+  border-radius: 5.6rem;
+}
+
+.tb-product__btn {
+  font-family: $font-bdy-semi;
+  font-weight: 600;
+  font-size: 1.6rem;
+  background: linear-gradient(103.84deg, #330694 17.98%, #8500a6 69.45%);
+  border: none;
+  outline: none;
+  border-radius: 4rem;
+  box-shadow: 0px 8px 20px 0px #6b4efc33;
+  padding: 0.4rem 0.4rem 0.4rem 2rem;
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    color: var(--theme-pure-white);
+  }
+}
+
+.tb-view__btn {
+  border: none;
+  outline: none;
+  border-radius: 4rem;
+  box-shadow: 0px 8px 20px 0px #6b4efc33;
+  padding: 1.4rem 4.3rem 1.4rem 5.8rem;
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(103.84deg, #330694 17.98%, #8500a6 69.45%);
+
+  span {
+    color: var(--theme-pure-white) !important;
+    font-family: $font-bdy-reg !important;
+    font-weight: 400 !important;
+    font-size: 2rem !important;
+  }
+}
+
+.tb-contact__btn {
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--theme-dark-violet);
+    box-shadow: 0 0 10px var(--theme-dark-violet);
+    color: var(--theme-dark-violet);
+    background-color: transparent;
+  }
+}
+
+.tb-product__btn,
+.tb-view__btn {
+  background-size: 100% 100%;
+  background-position: center;
+  transition: background-position 0.5s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    background-position: right center;
+    background-size: 200% 100%;
+  }
+}
+
+@include media(575px) {
+  .tb-view__btn {
+    padding: 0.8rem 2.5rem 0.8rem 2.5rem;
+
+    span {
+      font-size: 1.4rem !important;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+/****** HAMBURGER ICON *****/
+@use "../abstract/" as *;
+.custom-ham {
+  margin-top: 0.5rem;
+  outline: none !important;
+  display: none;
+}
+.bar1,
+.bar2,
+.bar3 {
+  width: 2rem;
+  height: 0.3rem;
+  background-color: $white;
+  margin: 0 0 6px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 2px;
+}
+
+.bar2 {
+  width: 30px;
+}
+
+.change .bar1 {
+  transform: rotate(-45deg) translate(-7px, 3px);
+  margin-left: 1rem;
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: rotate(45deg) translate(-9px, -6px);
+  margin-left: 1rem;
+}
+
+@include media(1199px) {
+  .custom-ham {
+    display: block;
+  }
+}

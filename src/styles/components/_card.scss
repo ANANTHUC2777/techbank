@@ -1,0 +1,227 @@
+/********** Cards ***********/
+@use "../abstract/" as *;
+.tb-card--product {
+  border: 1px solid var(--theme-pure-white);
+  border-radius: 2.8rem;
+  padding: 1.2rem 1.2rem 5rem;
+
+  .tb-product {
+    &__head {
+      border-top-left-radius: 2rem;
+      border-top-right-radius: 2rem;
+    }
+
+    &__img {
+      position: relative;
+
+      &--main {
+        max-width: 56.3rem;
+        width: 100%;
+        height: 24.5rem;
+        object-fit: cover;
+        object-position: 25% 10%;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+      }
+
+      &--icon {
+        position: absolute;
+        left: 1.5rem;
+        bottom: 1.1rem;
+      }
+    }
+
+    &__body {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding-inline: 2.4rem;
+    }
+
+    &__txt {
+      max-width: 30.5rem;
+
+      h4 {
+        font-family: $font-head;
+        font-weight: 400;
+        font-size: 2.996rem;
+        line-height: 5.128rem;
+        text-transform: uppercase;
+        color: var(--theme-pure-white);
+      }
+
+      p {
+        font-family: $font-bdy-reg;
+        font-weight: 400;
+        font-size: 1.4rem;
+        color: var(--theme-gray);
+      }
+    }
+  }
+}
+
+@include media(1199px) {
+  .tb-card--product {
+    padding: 1.2rem 1.2rem 0 1.2rem;
+  }
+
+  .tb-card--product .tb-product__body {
+    flex-wrap: wrap;
+    padding: 2.4rem;
+  }
+
+  .tb-card--product .tb-product__txt {
+    max-width: 100%;
+  }
+}
+
+@include media(767px) {
+  .tb-card--product {
+    padding: 1.2rem 1.2rem 0 1.2rem;
+  }
+
+  .tb-card--product .tb-product__body {
+    flex-wrap: wrap;
+    padding: 2.4rem;
+  }
+}
+
+@include media(575px) {
+  .tb-card--product .tb-product__txt h4 {
+    font-size: 1.8rem;
+    line-height: 3.2rem;
+  }
+
+  .tb-card--product .tb-product__txt p {
+    font-size: 1rem;
+  }
+
+  .tb-card--product .tb-product__txt {
+    max-width: 19rem;
+  }
+
+  .tb-card--product .tb-product__body {
+    justify-content: space-between;
+    padding: 2rem 1.2rem;
+  }
+}
+
+@include media(389px) {
+  .tb-card--product .tb-product__txt {
+    max-width: 100%;
+  }
+}
+
+.tb-card--brand {
+  border: 1px solid transparent;
+  background: linear-gradient($black, $black) padding-box, linear-gradient(151.62deg, #bb83ff 1.55%, #b1b1b1 28.63%, #313131 115.73%) border-box;
+  border-radius: 2.6rem;
+
+  .tb-brand {
+    &__head {
+      padding-block-start: 3.2rem;
+      padding-inline-start: 2rem;
+
+      h4 {
+        font-family: $font-bdy-reg;
+        font-weight: 400;
+        font-size: 2.411rem;
+        line-height: 4.127rem;
+        text-transform: uppercase;
+        color: var(--theme-pure-white);
+      }
+
+      p {
+        font-family: $font-bdy-reg;
+        font-weight: 400;
+        font-size: 1.4rem;
+        color: var(--theme-light-gray);
+        margin-block-end: 1.7rem;
+        max-width: 30rem;
+      }
+    }
+
+    &__icons {
+      display: flex;
+      gap: 2.4rem;
+
+      li {
+        img {
+          max-width: 2.6rem;
+        }
+      }
+    }
+
+    &__body {
+      img {
+        max-width: 35.3rem;
+        margin-inline: auto;
+      }
+    }
+  }
+}
+
+@include respond-between(992px, 1199px) {
+  .tb-card--brand .tb-brand__body img {
+    max-width: 100%;
+  }
+}
+
+@include media(991px) {
+  .tb-card--brand .tb-brand__body img {
+    max-width: 100%;
+  }
+}
+
+@include media(575px) {
+  .tb-card--brand .tb-brand__head h4 {
+    font-size: 2rem;
+    line-height: 3.3rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .tb-card--brand .tb-brand__head p {
+    font-size: 1.2rem;
+  }
+
+  .tb-card--brand .tb-brand__icons {
+    display: none;
+  }
+}
+
+.tb-blog--card {
+  border-radius: 2.4rem;
+  background: var(--theme-dark-gray);
+
+  .tb-blog {
+    &__head {
+      img {
+        max-width: 100%;
+        border-radius: 2.4rem;
+      }
+    }
+
+    &__body {
+      padding: 3.1rem 3.1rem 6.2rem;
+
+      h4 {
+        font-family: $font-bdy-reg;
+        font-weight: 400;
+        font-size: 2.4rem;
+        line-height: 5.477rem;
+        text-transform: uppercase;
+        color: var(--theme-pure-white);
+      }
+
+      p {
+        font-family: $font-bdy-reg;
+        font-weight: 400;
+        font-size: 1.4rem;
+        color: var(--theme-pure-white);
+      }
+    }
+  }
+}
