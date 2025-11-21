@@ -130,6 +130,10 @@
   }
 }
 
+.tb-contact--phone {
+  position: relative;
+  z-index: -1;
+}
 @include media(1199px) {
   .tb-contact__form h1 {
     font-size: 4.8rem;

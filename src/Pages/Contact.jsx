@@ -92,17 +92,17 @@ export default function Contact() {
                 <h1 className="d-none d-sm-block tb-contact__anime">Contact Us</h1>
                 <form>
                   <div className="tb-contact__field">
-                    <label for="name">Name *</label>
+                    <label htmlFor="name">Name *</label>
                     <input type="text" id="name" name="name" placeholder="Enter Your Name " />
                   </div>
 
                   <div className="tb-contact__field">
-                    <label for="email">Email *</label>
+                    <label htmlFor="email">Email *</label>
                     <input type="email" id="email" name="email" placeholder="Enter Email" />
                   </div>
 
                   <div className="tb-contact__field">
-                    <label for="phone">Phone Number *</label>
+                    <label htmlFor="phone">Phone Number *</label>
                     <div className="tb-contact__phone">
                       <ReactFlagsSelect
                         className="tb-contact__flag-select"
@@ -118,8 +118,8 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="tb-contact__field">
-                    <label for="message">Message</label>
+                  <div className="tb-contact__field tb-contact--phone">
+                    <label htmlFor="message">Message</label>
                     <textarea id="message" name="message" rows="5" placeholder="Write your message"></textarea>
                   </div>
 
