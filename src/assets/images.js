@@ -23,6 +23,13 @@ import footerLogoMob from "../assets/img/footerLogoMob.png";
 import bkTopArr from "../assets/img/bk-top-arr.svg";
 import retArr from "../assets/img/ret-arr.svg";
 import retBg from "../assets/img/ret-bg.svg";
+import Logo1 from "../assets/img/Logo1.png";
+import Logo2 from "../assets/img/Logo2.png";
+import Logo3 from "../assets/img/Logo3.png";
+import Logo4 from "../assets/img/Logo4.png";
+import Logo5 from "../assets/img/Logo5.png";
+import Logo6 from "../assets/img/Logo6.png";
+
 export const assets = {
   bkTopArr,
   retArr,
@@ -49,4 +56,10 @@ export const assets = {
   brd1,
   brd2,
   brd3,
+  Logo1,
+  Logo2,
+  Logo3,
+  Logo4,
+  Logo5,
+  Logo6,
 };
