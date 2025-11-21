@@ -1,5 +1,5 @@
 import Slider from "react-slick";
-import { useContext, useEffect, useRef, useLayoutEffect } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { ImgContext } from "../Context/ImgContext";
 import Cards from "./Cards";
 import { gsap } from "gsap";
@@ -55,15 +55,17 @@ export default function Blogs() {
         ease: "power3.out",
       }
     );
-  }, []);
 
-  useLayoutEffect(() => {
-    console.log("Slider ref:", sliderRef.current);
-    if (sliderRef.current) {
-      console.log("InnerSlider:", sliderRef.current.innerSlider);
-      sliderRef.current.slickGoTo(0);
-      sliderRef.current.innerSlider.onWindowResized();
-    }
+    tl.fromTo(
+      sliderRef.current,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+      }
+    );
   }, []);
   return (
     <section className="tb-blog">
@@ -72,13 +74,15 @@ export default function Blogs() {
           <div className="col-12" ref={blogRef}>
             <span className="tb-blog__anime">Techbank</span>
             <h6 className="tb-blog__anime">Blogs</h6>
-            <div className="tb-blog__slide">
-              <Slider className="tb-blog__slide-items" {...blogsettings} ref={sliderRef}>
-                <Cards headTxt="Smart AI Chatbot" bodyTxt="Enhance customer engagement with personalized, AI-driven interactions." mainImg={assets.blog1}></Cards>
-                <Cards headTxt="Smart AI Chatbot" bodyTxt="Enhance customer engagement with personalized, AI-driven interactions." mainImg={assets.blog2}></Cards>
-                <Cards headTxt="Smart AI Chatbot" bodyTxt="Enhance customer engagement with personalized, AI-driven interactions." mainImg={assets.blog3}></Cards>
-                <Cards headTxt="Smart AI Chatbot" bodyTxt="Enhance customer engagement with personalized, AI-driven interactions." mainImg={assets.blog2}></Cards>
-              </Slider>
+            <div ref={sliderRef}>
+              <div className="tb-blog__slide">
+                <Slider className="tb-blog__slide-items" {...blogsettings}>
+                  <Cards headTxt="Smart AI Chatbot" bodyTxt="Enhance customer engagement with personalized, AI-driven interactions." mainImg={assets.blog1}></Cards>
+                  <Cards headTxt="Smart AI Chatbot" bodyTxt="Enhance customer engagement with personalized, AI-driven interactions." mainImg={assets.blog2}></Cards>
+                  <Cards headTxt="Smart AI Chatbot" bodyTxt="Enhance customer engagement with personalized, AI-driven interactions." mainImg={assets.blog3}></Cards>
+                  <Cards headTxt="Smart AI Chatbot" bodyTxt="Enhance customer engagement with personalized, AI-driven interactions." mainImg={assets.blog2}></Cards>
+                </Slider>
+              </div>
             </div>
           </div>
         </div>
